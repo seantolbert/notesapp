@@ -8,20 +8,28 @@
 {% endblock extra_css %} 
 
 {% block content %}
-    <section>
-        <h1 class="home-title">Notes App</h1>
-    </section>
 
-    {% for note in notes %}
-    <div>
-        <a href="{% url 'note_detail' note.id %}">
-            {{note.title}} {{note.date}} {{note.text}}
-        </a>
-    </div>
-    {% endfor %}
+<section>
+    <h1 class="home-title">Notes App</h1>
+</section>
 
-    <div class="button-container">
-        <button><a href="">Add Note</a></button>
-    </div>
+{% if request.user.is_authenticated %}
+{% for note in notes %}
+<div>
+    <a href="{% url 'note_detail' note.id %}">
+        {{note.title}} {{note.date}} {{note.text}}
+    </a>
+</div>
+{% endfor %}
 
+<div class="button-container">
+    <button><a href="">Add Note</a></button>
+</div>
+
+{% else %}
+
+<p>Please Login to create and view your notes</p>
+
+
+{% endif %}
 {% endblock %}

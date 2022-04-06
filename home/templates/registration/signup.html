@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}{% endblock extra_css %}
+
+{% block title %}Notes - Signup{% endblock title %}
+
+{% block content %}
+<h1>Signup</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    {{form.username.label}}
+    {{form.username}}
+
+    {{form.first_name.label}}
+    {{form.first_name}}
+
+    {{form.last_name.label}}
+    {{form.last_name}}
+    
+    {{form.password1.label}}
+    {{form.password1}}
+
+    {{form.password2.label}}
+    {{form.password2}}
+    
+    <input type="submit" name="Create User">
+</form>
+
+{% for message in messages %}
+    <p id="messages">{{message}}</p>
+{% endfor %}
+
+<div>
+    Already have an account? <a href="{% url 'login' %}">Login</a>
+</div>
+
+{% endblock content %}

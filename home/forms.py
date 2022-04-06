@@ -7,10 +7,7 @@ from .models import Note
 class NoteForm(ModelForm):
     class Meta:
         model = Note
-        exclude = ['date']
-        labels = {
-            "title": 'Title',
-        }
+        fields = ['title', 'text', 'category', 'tag']
 
 class CreateUserForm(UserCreationForm):
     class Meta:

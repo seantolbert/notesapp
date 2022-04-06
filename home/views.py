@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, NoteForm
 from .models import Note
 
 
@@ -22,36 +22,44 @@ class HomePageView(ListView):
         data = queryset[:3]
         return data
 
-# @login_required
 class IndexPageView(ListView):
     template_name = 'notes/index.html'
     model = Note
     ordering = ['-date']
     context_object_name = 'notes'
 
-# @login_required(login_url='login')
 def note_detail(request, note_id):
     note = Note.objects.get(id=note_id)
     return render(request, "home/detail.html", {"note": note})
 
-# @login_required(login_url='login')
-class NoteCreate(CreateView, LoginRequiredMixin):
-    model = Note
-    fields = ["title", "text", "category", "tag"]
+def create_note(request):
+    form = NoteForm()
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form': form}
+    return render(request, 'notes/note_form.html', context)
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+def update_note(request, note_id):
+    note = Note.objects.get(id=note_id)
+    form = NoteForm(instance=note)
+    if request.method == 'POST':
+        form = NoteForm(request.POST, instance=note)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form': form}
+    return render(request, 'notes/note_form.html', context)
 
-# @login_required(login_url='login')
-class NoteUpdate(UpdateView, LoginRequiredMixin):
-    model = Note
-    fields = ["title", "text", "category", "tag"]
-
-# @login_required(login_url='login')
-class QuoteDelete(DeleteView, LoginRequiredMixin):
-    model = Note
-    success_url = '/notes/'
+def delete_note(request, note_id):
+    note = Note.objects.get(id=note_id)
+    if request.method == 'POST':
+        note.delete()
+        return redirect('home')
+    context = {'note': note}
+    return render(request, 'notes/delete.html', context)
 
 def signup_page(request):
     form = CreateUserForm()

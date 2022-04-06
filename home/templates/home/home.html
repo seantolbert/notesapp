@@ -1,29 +1,27 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 
-{% block title %}Home{% endblock title %}
+{% block title %}Home{% endblock title %} 
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'home/home.css' %}">
-{% endblock extra_css %}
+<link rel="stylesheet" href="{% static 'home/home.css' %}" />
+{% endblock extra_css %} 
 
 {% block content %}
-<section>
-    <h1 class="home-title">Notes App</h1>
-</section>
+    <section>
+        <h1 class="home-title">Notes App</h1>
+    </section>
 
-{% for note in notes  %}
+    {% for note in notes %}
     <div>
         <a href="{% url 'note_detail' note.id %}">
-            {{note.title}}
-            {{note.date}}
-            {{note.text}}
+            {{note.title}} {{note.date}} {{note.text}}
         </a>
     </div>
-{% endfor %}
+    {% endfor %}
 
-<div class="button-container">
-    <button>Add Note</button>
-</div>
+    <div class="button-container">
+        <button><a href="">Add Note</a></button>
+    </div>
 
 {% endblock %}

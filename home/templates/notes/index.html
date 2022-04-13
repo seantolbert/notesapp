@@ -8,8 +8,13 @@
 {% endblock extra_css %}
 
 {% block content %}
+<form method="GET" action="">
+    {{filter.form.as_p}}
+    <button type="submit">Search</button>
+</form>
+
 <h1>Index Page</h1>
-    {% for note in notes %}
+    {% for note in filter.qs %}
     <div>
         {{note.title}}
         {{note.date}}

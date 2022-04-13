@@ -1,7 +1,7 @@
 import re
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+# from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,24 +9,36 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import CreateUserForm, NoteForm
 from .models import Note
+from .filters import NoteFilter
 
 
-class HomePageView(ListView):
+class HomePageView(LoginRequiredMixin, ListView):
     template_name = 'home/home.html'
     model = Note
     ordering = ['-date']
     context_object_name = 'notes'
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
         queryset = super().get_queryset()
         data = queryset[:3]
         return data
 
-class IndexPageView(ListView):
+class IndexPageView(LoginRequiredMixin, ListView):
     template_name = 'notes/index.html'
     model = Note
     ordering = ['-date']
     context_object_name = 'notes'
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = NoteFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+
+    
 
 def note_detail(request, note_id):
     note = Note.objects.get(id=note_id)

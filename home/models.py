@@ -1,4 +1,3 @@
-from urllib import request
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -6,14 +5,14 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=20, blank=True, null=True)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 class Tag(models.Model):
     label = models.CharField(max_length=20, blank=True, null=True)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.label
@@ -25,7 +24,7 @@ class Note(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, null=True, related_name="notes")
     tag = models.ManyToManyField(Tag)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

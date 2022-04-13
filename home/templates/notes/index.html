@@ -15,10 +15,12 @@
 
 <h1>Index Page</h1>
     {% for note in filter.qs %}
+    {% if note.user.id == user.id %}
     <div>
         {{note.title}}
         {{note.date}}
         {{note.text}}
     </div>    
+    {% endif %}
     {% endfor %}
 {% endblock content %}

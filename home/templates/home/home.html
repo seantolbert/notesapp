@@ -15,12 +15,14 @@
 
 {% if request.user.is_authenticated %}
 {% for note in notes %}
+{% if note.user.id == user.id %}
 <div>
     <a href="{% url 'update_note' note.id %}">
         {{note.title}} {{note.date}} {{note.text}}
     </a>
     <a href="{% url 'delete_note' note.id %}">x</a>
 </div>
+{% endif %}
 {% endfor %}
 
 <div class="button-container">

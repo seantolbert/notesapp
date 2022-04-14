@@ -7,7 +7,7 @@ from .models import Note
 class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields = ['title', 'text', 'category', 'tag', 'user']
+        fields = ['title', 'text', 'category', 'tags']
 
 class CreateUserForm(UserCreationForm):
     class Meta:

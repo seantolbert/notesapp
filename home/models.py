@@ -24,7 +24,7 @@ class Note(models.Model):
     text = RichTextField(blank = True, null=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, null=True, related_name="notes")
-    tag = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag)
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):

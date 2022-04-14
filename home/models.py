@@ -6,15 +6,11 @@ from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     name = models.CharField(max_length=20, blank=True, null=True)
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-
     def __str__(self):
         return self.name
 
 class Tag(models.Model):
     label = models.CharField(max_length=20, blank=True, null=True)
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-
     def __str__(self):
         return self.label
 

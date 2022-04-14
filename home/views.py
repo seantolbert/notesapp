@@ -24,6 +24,11 @@ class HomePageView(LoginRequiredMixin, ListView):
         queryset = super().get_queryset()
         data = queryset[:3]
         return data
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['note_tags'] = self.object.tags.all()
+    #     return context
 
 class IndexPageView(LoginRequiredMixin, ListView):
     template_name = 'notes/index.html'
@@ -35,6 +40,7 @@ class IndexPageView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # context['note_tags'] = self.object.tags.all()
         context['filter'] = NoteFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
@@ -68,6 +74,7 @@ class NoteUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'text', 'category', 'tags']
     login_url = 'login'
     redirect_field_name = 'redirect_to'
+    success_url = '/'
 
 # def update_note(request, note_id):
 #     note = Note.objects.get(id=note_id)

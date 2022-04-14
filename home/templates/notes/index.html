@@ -19,7 +19,7 @@
     <div>
         {{note.title}}
         {{note.date}}
-        {{note.text}}
+        {{note.text|safe}}
     </div>    
     {% endif %}
     {% endfor %}

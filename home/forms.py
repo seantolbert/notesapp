@@ -1,13 +1,13 @@
-from django.forms import ModelForm
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from .models import Note
 
-class NoteForm(ModelForm):
+class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields = ['title', 'text', 'category', 'tag']
+        fields = ['title', 'text', 'category', 'tag', 'user']
 
 class CreateUserForm(UserCreationForm):
     class Meta:

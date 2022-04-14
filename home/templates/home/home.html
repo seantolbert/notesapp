@@ -18,7 +18,9 @@
 {% if note.user.id == user.id %}
 <div>
     <a href="{% url 'update_note' note.id %}">
-        {{note.title}} {{note.date}} {{note.text}}
+        {{note.title}} 
+        {{note.date}} 
+        {{note.text|safe}}
     </a>
     <a href="{% url 'delete_note' note.id %}">x</a>
 </div>

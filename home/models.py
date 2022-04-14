@@ -21,7 +21,6 @@ class Tag(models.Model):
 class Note(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
     date = models.DateTimeField(auto_now=True)
-    # text = models.TextField()
     text = RichTextField(blank = True, null=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, null=True, related_name="notes")

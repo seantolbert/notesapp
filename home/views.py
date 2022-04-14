@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .forms import CreateUserForm, NoteForm
+from .forms import CreateUserForm
 from .models import Note
 from .filters import NoteFilter
 
@@ -40,7 +40,6 @@ class IndexPageView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['note_tags'] = self.object.tags.all()
         context['filter'] = NoteFilter(self.request.GET, queryset=self.get_queryset())
         return context
 

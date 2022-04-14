@@ -30,10 +30,12 @@
 
             {{note.text|safe}}
         </div>
-        {{note.category}}
-        {% for tag in note.tags.all %}
-        {{tag}}
-        {% endfor %}
+        <div>
+            {{note.category}}
+            {% for tag in note.tags.all %}
+            {{tag}}
+            {% endfor %}
+        </div>    
         </a>
         <a href="{% url 'delete_note' note.id %}">x</a>
     </div>

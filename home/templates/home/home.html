@@ -1,10 +1,10 @@
 {% extends 'base.html' %} 
-{% load static %} 
+{% load sass_tags %} 
 
 {% block title %}Home{% endblock title %} 
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'home/home.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% sass_src 'home/css/home.scss' %}" />
 {% endblock extra_css %} 
 
 {% block content %}
@@ -44,7 +44,7 @@
 {% endfor %}
 
 <div class="button-container">
-    <button><a href="{% url 'create_note' %}">Add Note</a></button>
+    <a href="{% url 'create_note' %}"><button class="btn btn__primary"><p>Add Note</p></button></a>
 </div>
 
 {% else %}

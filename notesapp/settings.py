@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'django_filters',
     'ckeditor',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,14 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static"
+]
+
+SASS_PROCESSOR_ROOT = BASE_DIR / 'static'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
 ]
 
 # Default primary key field type

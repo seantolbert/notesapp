@@ -1,3 +1,9 @@
-h1 {
-    /* color: blue; */
+html {
+    box-sizing: border-box;
+    background: #e4ebf5;
+    overflow-y: scroll;
+}
+
+a {
+    text-decoration: none;
 }

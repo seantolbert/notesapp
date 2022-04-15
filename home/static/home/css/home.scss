@@ -6,10 +6,10 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
 .section {
     margin: 5%;
 
-    p {
-      color: red;
+    // p {
+    //   // color: red;
 
-    }
+    // }
   }
   
 .btn {
@@ -45,7 +45,7 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
     width: 20.4rem;
     height: 4rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 3rem;
     font-size: 1.4rem;
     padding-left: 3.8rem;
     box-shadow: $inner-shadow;
@@ -72,5 +72,53 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
     display: flex;
     color: var(--greyDark);
     transition: .3s ease;
+  }
+}
+
+// note tiles
+
+.chip {
+  justify-self: center;
+  width: 17rem;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: $shadow;
+  align-items: center;
+  background: var(--greyLight-1);
+
+  &__top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      margin: 1rem;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .close {
+      box-shadow: $shadow;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      display: flex;
+      margin: 1rem;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: var(--greyDark);
+
+      &:hover {
+        color: var(--primary);
+      }
+      &:active {
+        box-shadow: $inner-shadow;
+      }
+    }
+  }
+  &__text {
+    padding: 1rem;
   }
 }

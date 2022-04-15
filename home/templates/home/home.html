@@ -20,15 +20,33 @@
   </div>
 </section>
 
-<div class="search">
+<!-- <div class="search">
   <input type="text" class="search__input" placeholder="Search..." />
   <div class="search__icon">
     <i class="fa-solid fa-magnifying-glass"></i>
   </div>
+</div> -->
+
+{% if notes %} 
+{% for note in notes %} 
+{% if note.user.id == user.id %}
+
+<div class="chip">
+    <div class="chip__top-row">
+        <div class="title">
+            <p>{{note.title}}</p>
+        </div>
+        <a href="{% url 'delete_note' note.id %}">
+            <div class="close"> 
+                <i class="fa-solid fa-xmark"></i>          
+            </div>
+        </a>
+    </div>
+        <div class="chip__text">
+            <span class="text">{{note.text|safe}}</span>
+        </div>
 </div>
 
-{% if request.user.is_authenticated %} {% for note in notes %} 
-{% if note.user.id == user.id %}
 <div>
   <a href="{% url 'update_note' note.id %}">
     <div>{{note.title}}</div>

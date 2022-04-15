@@ -1,0 +1,121 @@
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+$shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+  -0.2rem -0.2rem 0.5rem var(--white);
+$inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+  inset -0.2rem -0.2rem 0.5rem var(--white);
+
+html {
+  box-sizing: border-box;
+  background: #e4ebf5;
+//   overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.btn {
+  width: 15rem;
+  height: 4rem;
+  border-radius: 1rem;
+  box-shadow: $shadow;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: white;
+
+  &__primary {
+    background: var(--primary);
+    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
+      inset -0.2rem -0.2rem 1rem var(--primary-dark), $shadow;
+    color: var(--greyLight-1);
+
+    &:hover {
+      color: var(--white);
+    }
+    &:active {
+      box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark),
+        inset -0.2rem -0.2rem 1rem var(--primary-light);
+    }
+  }
+
+  &__secondary {
+    color: var(--greyDark);
+    &:hover {
+      color: var(--primary);
+    }
+    &:active {
+      box-shadow: $inner-shadow;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+//   navbar
+
+.main-navigation {
+  display: flex;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  background: var(--greyLight-1);
+  margin: 10px 10px 0 0;
+}
+
+.icon {
+  border-radius: 3rem;
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2),
+    -0.2rem -0.2rem 1.8rem var(--white);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__home, &__index, &__plus {
+      width: 2rem;
+      height: 2rem;
+      margin: 5px 0;
+      border-radius: 50%;
+      box-shadow: $shadow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--greyDark);
+      transition: all .5s ease;
+
+      &:active {
+          box-shadow: $inner-shadow;
+          color: var(--primary);
+      }
+      &:hover {
+          color: var(--primary);
+      }
+  }
+}

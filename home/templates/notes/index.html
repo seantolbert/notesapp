@@ -8,6 +8,14 @@
 {% endblock extra_css %}
 
 {% block content %}
+{% comment %} <div class="search">
+    <input type="text" class="search__input" placeholder="Search...">
+    <div class="search__icon">
+        <ion-icon name="search"></ion-icon>
+    </div>
+</div> {% endcomment %}
+
+
 <form method="GET" action="">
     {{filter.form.as_p}}
     <button type="submit">Search</button>

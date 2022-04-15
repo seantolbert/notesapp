@@ -1,16 +1,19 @@
 {% if request.user.is_authenticated %}
 <nav class="main-navigation">
-    <div class="nav-content">
-        <p class="app-title"><a href="{% url 'home' %}"><span>Notes App</span></a></p>
-        <ul class="nav-items">
-            <div class="nav-item"><a href="{% url 'index' %}">All Notes</a></div>
-            <div class="nav-item"><a href="#">Fav's</a></div>
-            <div class="nav-item"><a href="{% url 'create_note' %}">New</a></div>
-            <div class="nav-item"><a href="{% url 'login' %}">Login</a></div>
-            <div class="nav-item"><a href="{% url 'signup' %}">Signup</a></div>
-        </ul>
-        <span>Hello, {{request.user}}</span>
-        <span><a href="{% url 'logout' %}">Logout</a></span>
+    <div class="icon">
+        
+        
+        <div class="icon__home"><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a></div>
+        <div class="icon__index"><a href="{% url 'index' %}"><i class="fa-solid fa-circle-notch"></i></a></div>
+        <div class="icon__plus"><a href="{% url 'create_note' %}"><i class="fa-solid fa-plus"></i></a></div>
+        {% comment %} <div class="nav-item"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i></a></div> {% endcomment %}
+        {% comment %} <div class="nav-item"><a href="{% url 'signup' %}">Signup</a></div> {% endcomment %}
+        
+        {% comment %} <span>Hello, {{request.user}}</span>
+        <span><a href="{% url 'logout' %}"><i class="fa-regular fa-user"></i></a></span> {% endcomment %}
     </div>
 </nav>
+<p class="app-title">
+    <a href="{% url 'home' %}"><span>Notes App</span></a>
+</p>
 {% endif %}

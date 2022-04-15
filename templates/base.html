@@ -1,4 +1,4 @@
-{% load static %}
+{% load static sass_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,12 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="icon" href="{% static 'images/tolbertcologo.png' %}">
+    <script src="https://kit.fontawesome.com/98545e95b1.js" crossorigin="anonymous"></script>
 
-
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% sass_src 'styles.scss' %}">
     {% block extra_css %}{% endblock extra_css %}
 </head>
-<body class="bg-blue-400">
+<body>
     <header>
         {% include 'navbar.html' %}
     </header>

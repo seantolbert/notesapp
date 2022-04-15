@@ -1,55 +1,55 @@
-{% extends 'base.html' %} 
-{% load sass_tags %} 
-
-{% block title %}Home{% endblock title %} 
-
-{% block extra_css %}
-<link rel="stylesheet" type="text/css" href="{% sass_src 'home/css/home.scss' %}" />
-{% endblock extra_css %} 
-
-{% block content %}
-
-<section>
-    <h1 class="home-title">Notes App</h1>
+{% extends 'base.html' %} {% load sass_tags %} 
+{% block title %}Home{% endblock %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% sass_src 'home/css/home.scss' %}"
+/>
+{% endblock extra_css %} {% block content %}
+<section class="section">
+  <div class="header">
+    <div class="header-container">
+      <p class="header__title">Notes</p>
+    </div>
+    <div class="header__search">
+      <form method="GET" action="">
+        {{filter.form.as_p}}
+        <button class="" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
 </section>
 
-{% if request.user.is_authenticated %}
-{% for note in notes %}
+<div class="search">
+  <input type="text" class="search__input" placeholder="Search..." />
+  <div class="search__icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+{% if request.user.is_authenticated %} {% for note in notes %} 
 {% if note.user.id == user.id %}
 <div>
-    <a href="{% url 'update_note' note.id %}">
-        <div>
-
-            {{note.title}} 
-        </div>
-        <div>
-
-            {{note.date}} 
-        </div>
-        <div>
-
-            {{note.text|safe}}
-        </div>
-        <div>
-            {{note.category}}
-            {% for tag in note.tags.all %}
-            {{tag}}
-            {% endfor %}
-        </div>    
-        </a>
-        <a href="{% url 'delete_note' note.id %}">x</a>
+  <a href="{% url 'update_note' note.id %}">
+    <div>{{note.title}}</div>
+    <div>{{note.date}}</div>
+    <div>{{note.text|safe}}</div>
+    <div>
+      {{note.category}} {% for tag in note.tags.all %} {{tag}} {% endfor %}
     </div>
-{% endif %}
-{% endfor %}
+  </a>
+  <a href="{% url 'delete_note' note.id %}">x</a>
+</div>
+{% endif %} {% endfor %}
 
 <div class="button-container">
-    <a href="{% url 'create_note' %}"><button class="btn btn__primary"><p>Add Note</p></button></a>
+  <a href="{% url 'create_note' %}"
+    ><button class="btn btn__primary"><p>Add Note</p></button></a
+  >
 </div>
 
 {% else %}
 
 <p>Please Login to create and view your notes</p>
 
-
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}

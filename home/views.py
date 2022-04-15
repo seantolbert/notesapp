@@ -20,15 +20,15 @@ class HomePageView(LoginRequiredMixin, ListView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        data = queryset[:3]
-        return data
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     data = queryset[:3]
+    #     return data
     
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['note_tags'] = self.object.tags.all()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = NoteFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 class IndexPageView(LoginRequiredMixin, ListView):
     template_name = 'notes/index.html'

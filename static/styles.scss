@@ -18,7 +18,6 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
 html {
   box-sizing: border-box;
   background: #e4ebf5;
-//   overflow-y: scroll;
 }
 
 a {
@@ -79,12 +78,13 @@ a {
 //   navbar
 
 .main-navigation {
+  position: fixed;
+  margin: 10px 5px 0 0;
+  right: 0;
   display: flex;
-  float: right;
   align-items: center;
   justify-content: center;
   background: var(--greyLight-1);
-  margin: 10px 10px 0 0;
 }
 
 .icon {
@@ -96,26 +96,28 @@ a {
   flex-direction: column;
   justify-content: space-between;
 
-  &__home, &__index, &__plus {
-      width: 2rem;
-      height: 2rem;
-      margin: 5px 0;
-      border-radius: 50%;
-      box-shadow: $shadow;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      cursor: pointer;
-      color: var(--greyDark);
-      transition: all .5s ease;
+  &__home,
+  &__index,
+  &__plus {
+    width: 2rem;
+    height: 2rem;
+    margin: 5px 0;
+    border-radius: 50%;
+    box-shadow: $shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--greyDark);
+    transition: all 0.5s ease;
 
-      &:active {
-          box-shadow: $inner-shadow;
-          color: var(--primary);
-      }
-      &:hover {
-          color: var(--primary);
-      }
+    &:active {
+      box-shadow: $inner-shadow;
+      color: var(--primary);
+    }
+    &:hover {
+      color: var(--primary);
+    }
   }
 }

@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap");
+
 :root {
+  // colors
   --primary-light: #8abdff;
   --primary: #6d5dfc;
   --primary-dark: #5b0eeb;
-
   --white: #ffffff;
   --greyLight-1: #e4ebf5;
   --greyLight-2: #c8d0e7;
   --greyLight-3: #bec8e4;
   --greyDark: #9baacf;
+  //   fonts
+  --header: "Merriweather", serif;
+  --regular: "Roboto", sans-serif;
 }
 
 $shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
@@ -17,7 +22,12 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
 
 html {
   box-sizing: border-box;
-  background: #e4ebf5;
+  background: var(--greyLight-1);
+  font-family: var(--regular);
+}
+
+body {
+    margin: 0 10px;
 }
 
 a {

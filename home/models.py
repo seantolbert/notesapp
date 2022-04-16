@@ -15,7 +15,7 @@ class Tag(models.Model):
         return self.label
 
 class Note(models.Model):
-    title = models.CharField(max_length=50, blank=True, null=True)
+    title = models.CharField(max_length=20, blank=True, null=True)
     date = models.DateTimeField(auto_now=True)
     text = RichTextField(blank = True, null=True)
     category = models.ForeignKey(

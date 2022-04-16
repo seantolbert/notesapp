@@ -1,10 +1,6 @@
 .section {
   margin: 5%; }
 
-.btn {
-  width: 5rem;
-  height: 2rem; }
-
 .header {
   display: flex;
   justify-content: space-between; }
@@ -17,9 +13,10 @@
     margin: 2% 2% 0 0;
     color: blue; }
 
+.input {
+  background-color: blue; }
+
 .search {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
   position: relative;
   display: flex;
   align-items: center; }
@@ -48,11 +45,14 @@
     padding: 0 1rem;
     display: flex;
     color: var(--greyDark);
-    transition: .3s ease; }
+    transition: 0.3s ease; }
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; }
 
 .chip {
-  justify-self: center;
-  width: 17rem;
   height: auto;
   border-radius: 1rem;
   box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
@@ -63,26 +63,58 @@
     flex-direction: row;
     justify-content: space-between; }
     .chip__top-row .title {
-      margin: 1rem;
-      font-size: 1.8rem;
-      color: var(--primary); }
-    .chip__top-row .close {
+      margin: 1rem 1rem 0.5rem 1rem;
+      font-family: var(--header);
+      display: flex;
+      flex-direction: column;
+      padding: 0; }
+      .chip__top-row .title__text {
+        font-size: 1.5rem;
+        color: var(--primary);
+        width: 20ch; }
+      .chip__top-row .title__date {
+        font-size: 11px; }
+    .chip__top-row .button-control {
+      display: flex;
+      align-items: flex-end; }
+    .chip__top-row .close, .chip__top-row .edit {
+      align-items: flex-end;
       box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
       padding: 1rem;
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
       display: flex;
-      margin: 1rem;
+      margin: 0 1rem 1.1rem 0.3rem;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       color: var(--greyDark); }
-      .chip__top-row .close:hover {
+      .chip__top-row .close:hover, .chip__top-row .edit:hover {
         color: var(--primary); }
-      .chip__top-row .close:active {
+      .chip__top-row .close:active, .chip__top-row .edit:active {
         box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white); }
   .chip__text {
-    padding: 1rem; }
+    padding: 0.5rem 1rem 1rem 1rem; }
+  .chip .text {
+    font-size: 10px;
+    line-height: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical; }
+  .chip .tags {
+    padding: 0.2rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: flex-end; }
+  .chip .tag {
+    border-radius: 10px;
+    background: var(--greyDark);
+    color: white;
+    padding: 3px 5px;
+    font-size: 15px;
+    margin-left: 5px; }
 
 /*# sourceMappingURL=home.css.map */

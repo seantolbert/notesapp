@@ -1,0 +1,100 @@
+$shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+  -0.2rem -0.2rem 0.5rem var(--white);
+$inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+  inset -0.2rem -0.2rem 0.5rem var(--white);
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-control {
+  vertical-align: center;
+  border-radius: 3rem;
+  box-shadow: $shadow;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+
+  .control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+
+    &__input {
+      width: 100%;
+      height: 4rem;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.4rem;
+      box-shadow: $inner-shadow;
+      background: none;
+      color: var(--greyDark);
+      padding-left: 3.8rem;
+
+      &::placeholder {
+        color: var(--greyLight-3);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: $shadow;
+
+        + .control__icon {
+          color: var(--primary);
+        }
+      }
+    }
+
+    &__icon {
+      height: 2rem;
+      position: absolute;
+      font-size: 2rem;
+      padding: 0 1rem;
+      display: flex;
+      color: var(--greyDark);
+      transition: 0.3s ease;
+    }
+  }
+  .btn {
+    width: 50%;
+    height: 2.5rem;
+    box-shadow: $shadow;
+    margin: 0 auto 20px auto;
+    border: none;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s ease;
+    color: var(--greyDark);
+    &:hover {
+      color: var(--primary);
+    }
+    &:active {
+      box-shadow: $inner-shadow;
+    }
+  }
+}
+
+#messages {
+  color: red;
+  margin-bottom: 10px;
+}

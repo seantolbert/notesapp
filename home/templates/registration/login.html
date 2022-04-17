@@ -1,28 +1,55 @@
-{% extends 'base.html' %}
-
-{% block title %}Notes - Login{% endblock title %}
-
-{% block extra_css %}{% endblock extra_css %}
+{% extends 'base.html' %} {% load sass_tags %} 
+{% block title %}Notes - Login{% endblock title %} 
+{% block extra_css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% sass_src 'home/css/registration.scss' %}"
+/>
+{% endblock extra_css %} 
 
 {% block content %}
-<h1>Login</h1>
+<div class="container">
+  <div class="form-control">
+    <h1 class="title">LOGIN</h1>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form">
+        <div class="control">
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <input
+            class="control__input"
+            placeholder="username"
+            type="text"
+            name="username"
+          />
+        </div>
+        <div class="control">
+          <div class="control__icon">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <input
+            class="control__input"
+            placeholder="password"
+            type="password"
+            name="password"
+          />
+        </div>
+        <button class="btn" type="submit">
+          Login
+        </button>
+          <!-- <input class="btn" type="submit" value="Login" /> -->
+      </div>
+    </form>
 
-<form method="POST" action="">
-    {% csrf_token %}
-    <label for="username">Username</label>
-    <input type="text" name="username">
-    <label for="password">Password</label>
-    <input type="password" name="password">
-    
-    <input type="submit" value="Login">
-</form>
-
-{% for message in messages %}
+    {% for message in messages %}
     <p id="messages">{{message}}</p>
-{% endfor %}
+    {% endfor %}
 
-<div>
-    Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+    <div>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></div>
+  </div>
 </div>
 
 {% endblock content %}

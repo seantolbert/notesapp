@@ -70,6 +70,8 @@
   gap: 20px; }
 
 .chip {
+  max-width: 30%;
+  min-width: 30%;
   height: auto;
   border-radius: 1rem;
   box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);

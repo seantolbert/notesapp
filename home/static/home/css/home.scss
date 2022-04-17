@@ -7,30 +7,52 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
   margin: 5%;
 }
 
-// .btn {
-//   width: 5rem;
-//   height: 2rem;
-// }
-
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  &__title {
+  &__text {
     font-size: 100px;
+    // font-family: var(--header);
   }
   &__search {
     position: absolute;
     top: 0;
     right: 0;
     margin: 2% 2% 0 0;
-    color: blue;
+  }
+  
+  .button-container {
+    // margin-top: 10px;
+    align-items: center;
+    margin: 30px;
+    
+    .btn {
+      width: 8rem;
+      height: 4rem;
+      border-radius: 1rem;
+      box-shadow: $shadow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // align-self: center;
+      border: white;
+      cursor: pointer;
+      transition: ease 0.3s;
+      font-size: 20px;
+      color: var(--greyDark);
+      &:hover {
+        color: var(--primary);
+      }
+      &:active {
+        box-shadow: $inner-shadow;
+      }
+    }
   }
 }
 
-.input {
-  background-color: blue;
-}
+
+
 
 .search {
   position: relative;
@@ -38,12 +60,12 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
   align-items: center;
 
   &__input {
-    width: 20.4rem;
-    height: 4rem;
+    width: 20ch;
+    height: 2rem;
     border: none;
     border-radius: 3rem;
-    font-size: 1.4rem;
-    padding-left: 3.8rem;
+    font-size: 1.2rem;
+    padding-left: 2.8rem;
     box-shadow: $inner-shadow;
     background: none;
     font-family: inherit;
@@ -65,11 +87,12 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
   &__icon {
     height: 2rem;
     position: absolute;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 0 1rem;
     display: flex;
     color: var(--greyDark);
     transition: 0.3s ease;
+    align-items: center;
   }
 }
 
@@ -107,7 +130,7 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
       &__text {
         font-size: 1.5rem;
         color: var(--primary);
-        width: 20ch;
+        // width: 20ch;
       }
       &__date {
         font-size: 11px;

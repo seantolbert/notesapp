@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     'ckeditor',
     'sass_processor',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

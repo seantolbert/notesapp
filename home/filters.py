@@ -1,4 +1,5 @@
 from .models import *
+from django import forms
 import django_filters 
 from django.db.models import Q
 
@@ -12,11 +13,16 @@ from django.db.models import Q
 #         fields = ['title', 'text']
 
 class NoteFilter(django_filters.FilterSet):
-    q = django_filters.CharFilter(method='custom_filter', label='Search')
+    q = django_filters.CharFilter(
+        method='custom_filter', 
+        label='',
+        widget=forms.TextInput(attrs={'class': 'search__input', 'placeholder': 'search...'})
+        )
 
     class Meta:
         model = Note
         fields = ['q']
+
 
     def custom_filter(self, queryset, name, value):
         return queryset.filter(

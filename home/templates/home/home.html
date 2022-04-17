@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% load sass_tags %} 
+{% extends 'base.html' %} {% load sass_tags widget_tweaks %} 
 {% block title %}Home{% endblock %} 
-
 {% block extra_css %}
 <link
   rel="stylesheet"
@@ -12,70 +11,63 @@
 {% block content %}
 <section class="section">
   <div class="header">
-    <div class="header-container">
-      <p class="header__title">Notes</p>
+    <div class="header-title">
+      <p class="header__text">Notes</p>
     </div>
+    <div class="button-container">
+        <a href="{% url 'create_note' %}">
+          <button class="btn btn__primary">
+            <p>Add Note</p>
+          </button>
+        </a>
+      </div>
     <div class="header__search">
-      <form method="GET" action="">
-          {% for field in visible_fields %}
-
-          <div class="input">
-              {{field.input}}
-          </div>
-
-          {% endfor %}
-        {{filter.form.as_p}}
-        <button class="" type="submit">Search</button>
-      </form>
+        <form method="GET" action="">
+          <div class="search">
+            <div class="search__icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          {{ filter.form }}
+        </div>
+        </form>
     </div>
   </div>
 </section>
 
-<!-- <div class="search">
-  <input type="text" class="search__input" placeholder="Search..." />
-  <div class="search__icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div>
-</div> -->
-
-
 <section class="section">
+  <div class="note-list">
+    {% for note in filter.qs %} {% if note.user.id == user.id %}
 
-    
-    <div class="note-list">
-        {% for note in filter.qs %} 
-        {% if note.user.id == user.id %}
-        
-        <div class="chip">
-            <div class="chip__top-row">
-                <div class="title">
-                    <span class="title__text">{{note.title}}</span>
-                    <span class="title__date">{{note.date}}</span>
-                </div>
-                <div class="button-control">
-                    <a href="{% url 'update_note' note.id %}">
-                        <div class="edit">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </div>
-                    </a>
-                    <a href="{% url 'delete_note' note.id %}">
-                        <div class="close">
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="chip__text">
-                <span class="text">{{note.text|safe}}</span>
-            </div>
-            <div class="tags">
-                {% for tag in note.tags.all %}
-                <div class="tag">{{tag}}</div>
-                {% endfor %}
-            </div>
+    <div class="chip">
+      <div class="chip__top-row">
+        <div class="title">
+          <span class="title__text">{{note.title}}</span>
+          <span class="title__date">{{note.date}}</span>
         </div>
-        
-        <!-- <div>
+        <div class="button-control">
+          <a href="{% url 'update_note' note.id %}">
+            <div class="edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+          </a>
+          <a href="{% url 'delete_note' note.id %}">
+            <div class="close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="chip__text">
+        <span class="text">{{note.text|safe}}</span>
+      </div>
+      <div class="tags">
+        {% for tag in note.tags.all %}
+        <div class="tag">{{tag}}</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- <div>
             <a href="{% url 'update_note' note.id %}">
                 <div>{{note.title}}</div>
                 <div>{{note.date}}</div>
@@ -86,19 +78,11 @@
             </a>
             <a href="{% url 'delete_note' note.id %}">x</a>
         </div> -->
-        {% endif %} 
-        {% endfor %}
-    </div>
+    {% endif %} {% endfor %}
+  </div>
 </section>
 
 <section class="section">
-
-    <div class="button-container">
-        <a href="{% url 'create_note' %}">
-            <button class="btn btn__primary">
-                <p>Add Note</p>
-            </button>
-        </a>
-    </div>
+  
 </section>
 {% endblock %}

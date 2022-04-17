@@ -42,55 +42,13 @@ a {
   box-sizing: inherit;
 }
 
-.btn {
-  width: 15rem;
-  height: 4rem;
-  border-radius: 1rem;
-  box-shadow: $shadow;
-  justify-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border: white;
-
-  &__primary {
-    background: var(--primary);
-    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
-      inset -0.2rem -0.2rem 1rem var(--primary-dark), $shadow;
-    color: var(--greyLight-1);
-
-    &:hover {
-      color: var(--white);
-    }
-    &:active {
-      box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark),
-        inset -0.2rem -0.2rem 1rem var(--primary-light);
-    }
-  }
-
-  &__secondary {
-    color: var(--greyDark);
-    &:hover {
-      color: var(--primary);
-    }
-    &:active {
-      box-shadow: $inner-shadow;
-    }
-  }
-
-  p {
-    font-size: 1.6rem;
-  }
-}
-
 //   navbar
 
 .main-navigation {
   position: fixed;
-  margin: 10px 5px 0 0;
+  margin: 20px;
   right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +65,7 @@ a {
   justify-content: space-between;
 
   &__home,
-  &__index,
+  &__user,
   &__plus {
     width: 2rem;
     height: 2rem;

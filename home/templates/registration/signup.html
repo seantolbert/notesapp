@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% load sass_tags %} 
-
 {% block title %}Notes - Signup{% endblock title %} 
 
 {% block extra_css %}
@@ -16,46 +15,48 @@
     <h1 class="title">SIGNUP</h1>
     <form method="POST" action="">
       {% csrf_token %}
-      <div class="form">
-        <div class="control">
-          {{form.username}}
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
+      <div class="form-box">
+        <div class="form">
+          <div class="control">
+            {{form.username}}
+            <div class="control__icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+          </div>
+          <div class="control">
+            {{form.first_name}}
+            <div class="control__icon">
+              <i class="fa-solid fa-person"></i>
+            </div>
+          </div>
+          <div class="control">
+            {{form.last_name}}
+            <div class="control__icon">
+              <i class="fa-solid fa-user-ninja"></i>
+            </div>
+          </div>
+          <div class="control">
+            {{form.password1}}
+            <div class="control__icon">
+              <i class="fa-solid fa-key"></i>
+            </div>
+          </div>
+          <div class="control">
+            {{form.password2}}
+            <div class="control__icon">
+              <i class="fa-solid fa-lock"></i>
+            </div>
           </div>
         </div>
-        <div class="signup-control">
-          {{form.first_name}}
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
-        </div>
-        <div class="signup-control">
-          {{form.last_name}}
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
-        </div>
-        <div class="signup-control">
-          {{form.password1}}
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
-        </div>
-        <div class="signup-control">
-          {{form.password2}}
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
-        </div>
-      </div>
-      <button class="btn" type="submit" name="Create User">Register</button>
+    </div>
+        <button class="btn" type="submit" name="Create User">Register</button>
     </form>
 
     {% for message in messages %}
     <p id="messages">{{message}}</p>
     {% endfor %}
 
-    <div>Already have an account? <a href="{% url 'login' %}">Login</a></div>
+    <div class="reg-switch">Already have an account? <a href="{% url 'login' %}">Login</a></div>
   </div>
 </div>
 

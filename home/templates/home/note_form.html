@@ -1,21 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load sass_tags %} {% block title %}Create Note{% endblock title %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% sass_src 'home/css/note_form.scss' %}"
+/>
+{% endblock extra_css %} {% block content %}
+<section class="section">
+  <div class="container">
+    <!-- <div class="form-box"> -->
+      <!-- <form action="" method="POST"> -->
+        {% csrf_token %} 
+        <div class="form">
+            <div class="control">
+                {{form.title}}
+            </div>
+            <div class="control">
+                {{form.media}}
+                {{form.text}}
+            </div>
+            <div class="control">
 
-{% block title %}Create Note{% endblock title %}
+                {{form.category}} 
+            </div>
+            <div class="control">
 
-{% block extra_css %}
-{% endblock extra_css %}
-
-{% block content %}
-  
-    <h1>Create</h1>
-
-    <section>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.media}}
-            {{form.as_p}}
-            <input type='submit' name='Submit'>
-        </form>
-    </section>
+                {{form.tags}} 
+            </div>
+            <div class="button-container">
+                <input class="btn" role="button" type="submit" name="Submit" />
+            </div>
+        </div>
+      </form>
+    <!-- </div> -->
+  </div>
+</section>
 
 {% endblock content %}

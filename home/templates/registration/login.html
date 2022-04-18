@@ -16,39 +16,42 @@
     <h1 class="title">LOGIN</h1>
     <form method="POST" action="">
       {% csrf_token %}
-      <div class="form">
-        <div class="control">
-          <input
+      <div class="form-box">
+
+        <div class="form">
+          <div class="control">
+            <input
             class="control__input"
             placeholder="username"
             type="text"
             name="username"
-          />
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
+            />
+            <div class="control__icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
           </div>
-        </div>
-        <div class="login-control">
-          <input
+          <div class="control">
+            <input
             class="control__input"
             placeholder="password"
             type="password"
             name="password"
-          />
-          <div class="control__icon">
-            <i class="fa-solid fa-key"></i>
+            />
+            <div class="control__icon">
+              <i class="fa-solid fa-key"></i>
+            </div>
           </div>
         </div>
-        <button class="btn" type="submit">Login</button>
-        <!-- <input class="btn" type="submit" value="Login" /> -->
       </div>
-    </form>
-
-    {% for message in messages %}
+        <button class="btn" type="submit">Login</button>
+      
+      </form>
+      
+      {% for message in messages %}
     <p id="messages">{{message}}</p>
     {% endfor %}
 
-    <div>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></div>
+    <div class="reg-switch">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></div>
   </div>
 </div>
 

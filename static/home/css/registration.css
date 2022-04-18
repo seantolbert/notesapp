@@ -1,2 +1,71 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+  min-height: 100vh; }
+
+.form-box {
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem; }
+
+.title {
+  text-align: center;
+  margin-bottom: 10px; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0; }
+  .form .control {
+    display: flex;
+    align-items: center; }
+    .form .control__input {
+      width: 100%;
+      border: none;
+      border-radius: 1rem;
+      box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+      background: none;
+      color: var(--greyDark-2);
+      padding: 1rem 1rem 1rem 2rem;
+      caret-color: red; }
+      .form .control__input:focus {
+        outline: none;
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white); }
+        .form .control__input:focus + .control__icon {
+          color: var(--primary); }
+    .form .control__icon {
+      position: absolute;
+      color: var(--greyDark);
+      transition: 0.3s ease;
+      padding: 0.8rem; }
+
+.btn {
+  display: flex;
+  width: 60%;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 1rem;
+  margin: 20px auto;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 15px;
+  color: var(--greyDark); }
+  .btn:hover {
+    color: var(--primary); }
+  .btn:active {
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white); }
+
+.reg-switch {
+  text-align: center; }
+
+#messages {
+  color: red;
+  margin-bottom: 10px; }
 
 /*# sourceMappingURL=registration.css.map */

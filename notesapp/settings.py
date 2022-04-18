@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django_filters',
     'ckeditor',
     'sass_processor',
-    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +142,19 @@ STATICFILES_FINDERS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CKEDITOR_CONFIGS = {
+#     'toolbar': 'default'
+#     'skin': 'kama'    
+# }
+
+#     'default': {
+#         'toolbar': 'Custom',
+#         'toolbar_Custom': [
+#             ['Bold', 'Italic', 'Underline', 'Undo', 'Redo'],
+#             ['NumberedList', 'BulletedList'],
+#             ['Outdent', 'Indent'],
+#             ['RemoveFormat', 'Link', 'Unlink']
+#         ]
+#     }
+# }

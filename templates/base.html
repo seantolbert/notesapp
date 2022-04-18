@@ -18,7 +18,9 @@
 </head>
 <body>
     <header>
+        {% if request.user.is_authenticated %}
         {% include 'navbar.html' %}
+        {% endif %}
     </header>
         {% block content %}
         {% endblock %}

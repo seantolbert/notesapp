@@ -1,4 +1,3 @@
-import re
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -108,7 +107,7 @@ def signup_page(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account successfully created for ' + user)
-            return redirect('login')
+            return redirect('home')
         else:
             messages.error(request, 'User signup failed, please try again')
     context = {'form': form}

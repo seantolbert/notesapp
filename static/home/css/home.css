@@ -94,7 +94,8 @@
         font-size: 11px; }
     .chip__top-row .button-control {
       display: flex;
-      align-items: flex-end; }
+      align-items: flex-end;
+      border: 1px black solid; }
     .chip__top-row .close, .chip__top-row .edit {
       align-items: flex-end;
       box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);

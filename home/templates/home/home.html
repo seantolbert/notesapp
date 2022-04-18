@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% load sass_tags widget_tweaks %} 
+
 {% block title %}Home{% endblock %} 
+
 {% block extra_css %}
 <link
   rel="stylesheet"
@@ -15,21 +17,21 @@
       <p class="header__text">Notes</p>
     </div>
     <div class="button-container">
-        <a href="{% url 'create_note' %}">
-          <button class="btn btn__primary">
-            <p>Add Note</p>
-          </button>
-        </a>
-      </div>
+      <a href="{% url 'create_note' %}">
+        <button class="btn btn__primary">
+          <p>Add Note</p>
+        </button>
+      </a>
+    </div>
     <div class="header__search">
-        <form method="GET" action="">
-          <div class="search">
-            <div class="search__icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+      <form method="GET" action="">
+        <div class="search">
+          <div class="search__icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
           {{ filter.form }}
         </div>
-        </form>
+      </form>
     </div>
   </div>
 </section>
@@ -66,23 +68,9 @@
         {% endfor %}
       </div>
     </div>
-
-    <!-- <div>
-            <a href="{% url 'update_note' note.id %}">
-                <div>{{note.title}}</div>
-                <div>{{note.date}}</div>
-                <div>{{note.text|safe}}</div>
-                <div>
-                    {{note.category}} {% for tag in note.tags.all %} {{tag}} {% endfor %}
-                </div>
-            </a>
-            <a href="{% url 'delete_note' note.id %}">x</a>
-        </div> -->
-    {% endif %} {% endfor %}
+    {% endif %} 
+    {% endfor %}
   </div>
 </section>
 
-<section class="section">
-  
-</section>
 {% endblock %}

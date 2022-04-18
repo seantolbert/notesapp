@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% load sass_tags %} 
+
 {% block title %}Notes - Login{% endblock title %} 
+
 {% block extra_css %}
 <link
   rel="stylesheet"
@@ -10,37 +12,35 @@
 
 {% block content %}
 <div class="container">
-  <div class="form-control">
+  <div class="form-box">
     <h1 class="title">LOGIN</h1>
     <form method="POST" action="">
       {% csrf_token %}
       <div class="form">
         <div class="control">
-          <div class="control__icon">
-            <i class="fa-solid fa-user"></i>
-          </div>
           <input
             class="control__input"
             placeholder="username"
             type="text"
             name="username"
           />
-        </div>
-        <div class="control">
           <div class="control__icon">
-            <i class="fa-solid fa-key"></i>
+            <i class="fa-solid fa-user"></i>
           </div>
+        </div>
+        <div class="login-control">
           <input
             class="control__input"
             placeholder="password"
             type="password"
             name="password"
           />
+          <div class="control__icon">
+            <i class="fa-solid fa-key"></i>
+          </div>
         </div>
-        <button class="btn" type="submit">
-          Login
-        </button>
-          <!-- <input class="btn" type="submit" value="Login" /> -->
+        <button class="btn" type="submit">Login</button>
+        <!-- <input class="btn" type="submit" value="Login" /> -->
       </div>
     </form>
 

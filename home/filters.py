@@ -16,7 +16,10 @@ class NoteFilter(django_filters.FilterSet):
     q = django_filters.CharFilter(
         method='custom_filter', 
         label='',
-        widget=forms.TextInput(attrs={'class': 'search__input', 'placeholder': 'search...'})
+        widget=forms.TextInput(attrs={
+            'class': 'search__input', 
+            'placeholder': 'search...'
+            })
         )
 
     class Meta:

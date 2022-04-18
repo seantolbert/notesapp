@@ -138,6 +138,7 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
     .button-control {
       display: flex;
       align-items: flex-end;
+      border: 1px black solid;
     }
 
     .close, .edit {

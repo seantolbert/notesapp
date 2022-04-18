@@ -1,39 +1,62 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load sass_tags %} 
 
-{% block extra_css %}{% endblock extra_css %}
+{% block title %}Notes - Signup{% endblock title %} 
 
-{% block title %}Notes - Signup{% endblock title %}
+{% block extra_css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% sass_src 'home/css/registration.scss' %}"
+/>
+{% endblock extra_css %} 
 
 {% block content %}
-<h1>Signup</h1>
+<div class="container">
+  <div class="form-box">
+    <h1 class="title">SIGNUP</h1>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form">
+        <div class="control">
+          {{form.username}}
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+        <div class="signup-control">
+          {{form.first_name}}
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+        <div class="signup-control">
+          {{form.last_name}}
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+        <div class="signup-control">
+          {{form.password1}}
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+        <div class="signup-control">
+          {{form.password2}}
+          <div class="control__icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+      </div>
+      <button class="btn" type="submit" name="Create User">Register</button>
+    </form>
 
-<form method="POST" action="">
-    {% csrf_token %}
-
-    {{form.username.label}}
-    {{form.username}}
-
-    {{form.first_name.label}}
-    {{form.first_name}}
-
-    {{form.last_name.label}}
-    {{form.last_name}}
-    
-    {{form.password1.label}}
-    {{form.password1}}
-
-    {{form.password2.label}}
-    {{form.password2}}
-    
-    <input type="submit" name="Create User">
-</form>
-
-{% for message in messages %}
+    {% for message in messages %}
     <p id="messages">{{message}}</p>
-{% endfor %}
+    {% endfor %}
 
-<div>
-    Already have an account? <a href="{% url 'login' %}">Login</a>
+    <div>Already have an account? <a href="{% url 'login' %}">Login</a></div>
+  </div>
 </div>
 
 {% endblock content %}
